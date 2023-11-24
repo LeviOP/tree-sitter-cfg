@@ -1,0 +1,38 @@
+==================
+Full-line comment
+==================
+
+// This is a comment
+
+---
+
+(config
+  (comment))
+
+======================
+Comment after command
+======================
+
+echo "Command" // This is a comment
+
+---
+
+(config
+  (command
+    (name)
+    (argument))
+  (comment))
+
+============================
+Semicolon delimited comment
+============================
+
+// This is a comment ; echo "Command"
+
+---
+
+(config
+  (comment)
+  (command
+    (name)
+    (argument)))

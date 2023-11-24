@@ -1,0 +1,60 @@
+================
+Quoted argument
+================
+
+echo "Quoted argument"
+
+---
+
+(config
+  (command
+    (name)
+    (argument)))
+
+===================
+Unquoted arguments
+===================
+
+echo Unquoted arguments
+
+---
+
+(config
+  (command
+    (name)
+    (argument)
+    (argument)))
+
+===================================================
+Semicolon delimited commands with quoted arguments
+===================================================
+
+echo "Command one"; echo "Command two"
+
+---
+
+(config
+  (command
+    (name)
+    (argument))
+  (command
+    (name)
+    (argument)))
+
+=====================================================
+Semicolon delimited commands with unquoted arguments
+=====================================================
+
+echo Command one; echo Command two
+
+---
+
+(config
+  (command
+    (name)
+    (argument)
+    (argument))
+  (command
+    (name)
+    (argument)
+    (argument)))
