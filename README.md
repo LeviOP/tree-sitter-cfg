@@ -1,6 +1,8 @@
 # tree-sitter-cfg
 
-GoldSrc `.cfg` grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter/). This grammar and its highlights are mod-agnostic, and only attempt to replicate the way that GoldSrc tokenizes console commands. While this grammar is designed to accurately parse GoldSrc configs, it will work fine for basic Source configs. It will start to break down if you try to parse more abstract things, like quoted tokens without any white space (`echo"test"` vs `"echo"test`).
+GoldSrc `.cfg` grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter/). This grammar and its highlights are mod-agnostic, and only attempt to replicate the way that GoldSrc tokenizes console commands. 
+
+While this grammar is designed to accurately parse GoldSrc configs, it will work fine for basic Source configs. Its usage for Source configs will start to break down if you try to parse more abstract things like quoted tokens without any white space (`echo"test"` and `"echo"test` are parsed very differently in Source and GoldSrc).
 
 ## Known issues
 
