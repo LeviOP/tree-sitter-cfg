@@ -7,3 +7,6 @@ While this grammar is designed to accurately parse GoldSrc configs, it will work
 ## Known issues
 
 * Empty strings executed as commands - In GoldSrc, an empty string executed as a command will access (semi-)random memory and use that as a command if there isn't a command assigned to an empty string. This parser makes no attempt to handle that fact, although you really should never ever run into this as a problem. If you do encounter this, you can create an alias to an empty string. (`alias "";`)
+
+## Usage
+* [with Neovim](nvim/)
