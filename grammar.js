@@ -12,12 +12,10 @@ module.exports = grammar({
         )),
         comment: $ => token(prec(1, seq("//", /[^;\n]*/))),
         command: $ => seq(
-            $.name,
-            repeat($.argument)
+            field("name", $.token),
+            repeat(field("argument", $.token))
         ),
-        name: $ => $._token,
-        argument: $ => $._token,
-        _token: $ => choice(
+        token: $ => choice(
             //Quoted token, optionally missing an end quote (that is therefore terminated by a newline). Can contain any character except a newline.
             /"[^\n"]*"?/,
             //4 special characters that always become their own tokens (unless quoted).

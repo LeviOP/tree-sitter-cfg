@@ -62,27 +62,27 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "name"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "token"
+          }
         },
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "argument"
+            "type": "FIELD",
+            "name": "argument",
+            "content": {
+              "type": "SYMBOL",
+              "name": "token"
+            }
           }
         }
       ]
     },
-    "name": {
-      "type": "SYMBOL",
-      "name": "_token"
-    },
-    "argument": {
-      "type": "SYMBOL",
-      "name": "_token"
-    },
-    "_token": {
+    "token": {
       "type": "CHOICE",
       "members": [
         {

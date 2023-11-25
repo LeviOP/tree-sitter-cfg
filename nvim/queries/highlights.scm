@@ -1,5 +1,5 @@
 (comment) @comment @spell
-(name) @function.call
-(argument) @parameter
+name: (token) @function.call
+argument: (token) @parameter
 
 ";" @punctuation.delimiter

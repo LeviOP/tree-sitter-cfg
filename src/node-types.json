@@ -1,26 +1,28 @@
 [
   {
-    "type": "argument",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "command",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "argument",
-          "named": true
-        },
-        {
-          "type": "name",
-          "named": true
-        }
-      ]
+    "fields": {
+      "argument": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "token",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "token",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -43,7 +45,7 @@
     }
   },
   {
-    "type": "name",
+    "type": "token",
     "named": true,
     "fields": {}
   },
