@@ -28,59 +28,18 @@
               {
                 "type": "STRING",
                 "value": "\n"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "comment"
               }
             ]
           }
         ]
       }
     },
-    "comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 1,
-        "content": {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "//"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[^;\\n]*"
-            }
-          ]
-        }
-      }
-    },
     "command": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "name",
-          "content": {
-            "type": "SYMBOL",
-            "name": "token"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "FIELD",
-            "name": "argument",
-            "content": {
-              "type": "SYMBOL",
-              "name": "token"
-            }
-          }
-        }
-      ]
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "token"
+      }
     },
     "token": {
       "type": "CHOICE",
@@ -91,19 +50,23 @@
         },
         {
           "type": "PATTERN",
-          "value": "['():]"
+          "value": "[{}()':]"
         },
         {
           "type": "PATTERN",
-          "value": "[^\\n '():\";]+(\"[^\\n '():\"]*\"[^\\n '():\";]*)*(\"[^\\n '():\"]*)?"
+          "value": "[^\\n {}()':\";]+(\"[^\\n {}()':\"]*\"[^\\n {}()':\";]*)*(\"[^\\n {}()':\"]*)?"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\/\\/[^;\\n]*"
         }
       ]
     }
   },
   "extras": [
     {
-      "type": "PATTERN",
-      "value": "[ \\t]"
+      "type": "STRING",
+      "value": " "
     }
   ],
   "conflicts": [],
