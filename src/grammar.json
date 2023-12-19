@@ -35,19 +35,77 @@
       }
     },
     "command": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "SYMBOL",
-        "name": "token"
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_token"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "FIELD",
+            "name": "argument",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_token"
+            }
+          }
+        }
+      ]
     },
-    "token": {
+    "_token": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "\"[^\\n\"]*\"?"
+          "type": "SYMBOL",
+          "name": "_quoted_token"
         },
+        {
+          "type": "SYMBOL",
+          "name": "unquoted_token"
+        }
+      ]
+    },
+    "_quoted_token": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quoted_token"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "\""
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "quoted_token": {
+      "type": "PATTERN",
+      "value": "[^\\n\"]*"
+    },
+    "unquoted_token": {
+      "type": "CHOICE",
+      "members": [
         {
           "type": "PATTERN",
           "value": "[{}()':]"
