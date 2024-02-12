@@ -2,7 +2,7 @@ module.exports = grammar({
     name: "cfg",
 
     extras: $ => [
-        [\x00-\x20]
+        /[\x00-\x20]/
     ],
 
     rules: {
