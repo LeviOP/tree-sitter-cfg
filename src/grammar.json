@@ -124,7 +124,7 @@
   "extras": [
     {
       "type": "PATTERN",
-      "value": "[\\x00-\\x20]"
+      "value": "[\\x01-\\x20]"
     }
   ],
   "conflicts": [],
