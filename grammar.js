@@ -24,7 +24,7 @@ module.exports = grammar({
             //Characters that always become their own tokens
             /[{}()':,]/,
             //Unquoted token that can contain quote characters. After a quote, a semicolon may occur without ending the token. Subsequent quotes disallow semicolons, and then allow, and so on.
-            /[^\r\n {}()':,";]+("[^\r\n {}()':,"]*"[^\r\n {}()':,";]*)*("[^\r\n {}()':,"]*)?/,
+            /[^\r\n\x01-\x20{}()':,";]+("[^\r\n\x01-\x20{}()':,"]*"[^\r\n\x01-\x20{}()':,";]*)*("[^\r\n\x01-\x20{}()':,"]*)?/,
             //Comment, which is technically just a token which isn't added to cmd_argv by COM_Parse, but is still included in cmd_args
             /\/\/[^;\r\n]*/
         )
